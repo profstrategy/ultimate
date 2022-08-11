@@ -1,0 +1,116 @@
+body {
+    background-image: url('images/bg-intro-desktop.png');
+    background-color: hsl(0, 100%, 74%);
+    font-family: 'fonts';
+}
+
+@font-face {
+    font-family: 'fonts';
+    src: url(fonts/Poppins-ExtraBold.ttf);
+}
+
+.row {
+    height: 100vh;
+    align-items: center;
+}
+
+#col1 {
+    color: white;
+    height: 50vh;
+}
+
+h1 {
+    font-weight: 500;
+    line-height: 50px;
+}
+
+p{
+    font-size: 15px;
+}
+
+ #col2 {
+     height: 63%vh;
+}
+
+#but1 {
+    background-color: hsl(248, 32%, 49%);
+    color: white;
+    box-shadow: 3px 5px hsl(0, 33%, 56%);
+    border-radius: 10px;
+    padding: 5px 100px;
+    width: 100%;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+.input-body img {
+    position: absolute;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-color: rgb(114, 112, 112);
+}
+
+#image1 {
+    right: 5%;
+    display: none;
+}
+
+#image2 {
+    right: 5%;
+    display: none;
+}
+
+#image3 {
+    right: 5%;
+    display: none;
+}
+
+#image4 {
+    right: 5%;
+    display: none;
+}
+
+
+input::placeholder {
+    color:   hsl(0, 100%, 74%);
+    font-size: 13px;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 3px  hsl(0, 33%, 56%);
+}
+
+#but2 {
+   background-color: hsl(154, 59%, 51%);
+   width: 100%;
+   color: white;
+   padding: 10px;
+   box-shadow: 2px 3px  hsl(154, 59%, 51%);
+   font-size: 12px;
+}
+
+.res {
+    font-size: 10px;
+    color:  hsl(0, 100%, 74%);
+    text-align: end;
+}
+
+.LP {
+    font-size: 10px;
+    text-align: center;
+    color: rgb(192, 185, 185);
+}
+
+.span2 {
+    color:  hsl(0, 100%, 74%);;
+}
+
+.span1 {
+    font-size: 10px;
+}
