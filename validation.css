@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --firstfont: "Grand Hotel", cursive;
+    --secondfont: "Catamaran", sans-serif;
+    --primarycolor: #49afe2;
+    --background:  #698f3f;
+    --letterspace: 0.4rem;
+}
+
+body {
+    background-image: url('../images/bg-intro-desktop.png');
+    background-color: var(--background);
+    font-family: var(--secondfont);
+}
+
+.container {
+     /* position: absolute; 
+     left: 50%;
+     top: 50%; 
+     transform: translate(-50%, -50%);   */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    padding: 0px 30px 10px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    opacity: 30px;
+    border-radius: 10px;
+    border-color: #49afe2;
+    border-style: groove;
+    outline: none;
+}
+
+h1 {
+  margin: 20px;
+  color:  #49afe2; 
+}
+
+.mistake {
+    display: block;
+    text-align: right;
+    color: red;
+}
+
+.mistake input{
+    border-color: red;
+}
+
+.btn {
+    width: 100%;
+    background: linear-gradient(to right, #49afe2, #698f3f);
+    padding: 20px 0;
+    color: white;
+    font-size: 30px;
+    font-family: var(--firstfont);
+    border-radius: 10px;
+    opacity: 20px;
+    border-color:#698f3f;
+    border-style: hidden;
+    letter-spacing: var(--letterspace);
+    outline: 0.2rem solid var(--primarycolor);
+    outline-offset: 3px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+.btn:hover {
+    background: var(--primarycolor);;
+}
+
+#form {
+    background-color: rgb(226, 226, 226);
+    padding: 0 70px 40px 64px;
+}
+
+.intro {
+    text-align: center;
+    font-family: var(--firstfont);
+    color: #698f3f;
+    letter-spacing: var(--letterspace);
+    margin-top: -5px;
+}

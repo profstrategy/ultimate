@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="bootstrap/css/bootsrap.css">
+    <link rel="stylesheet" href="bootstrap/fontawesome-free-5.7.2-web 2/css/all.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="container">
+            <form action="index.html" id="form">
+                <h1 class="intro">login</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Login in for your exam</h1>
+                        <div>
+                            <fieldset>
+                                <legend>Email</legend>
+                                <input type="text" id="inp1" name="email">
+                            </fieldset>
+                            <small></small>
+                        </div><br>
+
+                        <div>
+                            <fieldset>
+                                <legend>password</legend>
+                                <i class="fa fa-eye icon" aria-hidden="true" onclick="eyes()"></i><input type="password" id="inp2"
+                                    name="password" maxlength="20">
+                            </fieldset>
+                            <small></small>
+                        </div><br>
+
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    let Email = document.getElementById('inp1');
+    let PWord = document.getElementById('inp2');
+    const login = JSON.parse(localStorage.getItem('user'))
+    const arr = []
+
+    // submit event
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        let validate_email = checkemail()
+        let validate_password = checkpassword();
+
+        let valid = true
+
+        if (!(validate_email && validate_password)) {
+            return valid = false
+        } else {
+            form.submit()
+            window.Location.assign('dashboard.html')
+            valid = true
+        }
+        return valid
+    })
+
+
+    function CHECK(input) {
+        // check inputs
+        let checkForm = input.value;
+        return checkForm == '' ? false : true
+    }
+
+
+    function CHECKINPUT(input, message) {
+        let valid = true
+        if (!CHECK(input)) {
+            mistake(input, message)
+            valid = false
+        }
+        else {
+            success(input)
+            valid = true
+        }
+        return valid
+    }
+
+
+
+    function mistake(input, message) {
+        let container = input.parentElement.parentElement;
+        container.classList.add('mistake');
+        // fix the class
+        let test = container.querySelector('small');
+        test.innerText = message;
+    }
+
+    function success(input) {
+        let container = input.parentElement.parentElement;
+        container.classList.remove('mistake');
+        // fix the class
+        let test = container.querySelector('small');
+        test.innerText = '';
+    }
+
+    function checkemail() {
+        let uniemail = login.findIndex((searchmail) => searchmail.mail == Email.value)
+        let valid = true
+        if (!CHECKINPUT(Email)) {
+            valid = false
+            mistake(Email, 'Fill this field')
+        }
+        else if (!(login[uniemail].mail == Email.value)) {
+            valid = false
+            mistake(Email, 'Invalid')
+        } else {
+            valid = true
+            success(Email)
+        } 
+        return valid
+    }
+
+    function checkpassword() {
+        let unipassword = login.findIndex((search) => search.mail == Email.value)
+        let valid = true
+        if (!CHECKINPUT(PWord)) {
+            valid = false
+            mistake(PWord, 'Fill this field')
+        } else if (!(login[unipassword].password == PWord.value)) {
+            valid = false
+            mistake(PWord, 'Invalid')
+        }
+        else {
+            valid = true
+            success(PWord)
+        } return valid
+    }
+
+    function eyes() {
+        if (PWord.type === 'password') {
+            PWord.type = 'text'
+        } else (
+            PWord.type = 'password'
+        )
+    }
+</script>
+
+</html>

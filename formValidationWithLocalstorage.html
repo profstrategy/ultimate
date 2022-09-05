@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validationWithLocalStorage</title>
+    <link rel="stylesheet" href="bootstrap/css/bootsrap.css">
+    <link rel="stylesheet" href="bootstrap/fontawesome-free-5.7.2-web 2/css/all.css">
+    <link rel="stylesheet" href="validation.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="container">
+            <form action="loginpage.html" id="form">
+                <h1 class="intro">WELCOME</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Complete your registration</h1>
+                        <div class="input-group">
+                            <input type="text" id="inp1" name="First-Name" placeholder="First-Name" method="post">
+                            <small></small>
+                        </div>
+
+                        <div class="input-group mt-1">
+                            <input type="text" id="inp2" name="Last-Name" placeholder="Last-Name" method="post">
+                            <small></small>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="inp3" name="email" placeholder="Email">
+                            <small></small>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="inp4" name="password" placeholder="Password" maxlength="20">
+                            <small></small>
+                        </div><br>
+
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    let form = document.getElementById('form');
+    let FName = document.getElementById('inp1');
+    let LName = document.getElementById('inp2');
+    let Email = document.getElementById('inp3');
+    let PWord = document.getElementById('inp4');
+    let inputGroup = document.querySelectorAll('input-group');
+    let icon = document.querySelectorAll('svg-image');
+    const arr = []
+
+    // submit event
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        let validate_FName = checkNameLength()
+        let validate_lName = checkNameLength1()
+        let validate_email = checkmail()
+        let validate_pword = checkPwordLength()
+        // let store = sTorage()
+        let valid = true
+
+        if (!(validate_email && validate_pword && validate_FName && validate_lName && store)) {
+            return valid = false
+        } else {
+
+            sTorage()
+
+            FName.value = '';
+            LName.value = '';
+            Email.value = '';
+            PWord.value = '';
+
+            form.submit()
+            window.Location.assign('loginpage.html')
+            valid = true
+        }
+        return valid
+    })
+
+
+    function CHECK(input) {
+        // check inputs
+        let checkForm = input.value;
+        return checkForm == '' ? false : true
+    }
+    // check length
+    const BetweenLength = (length, min, max) => length < min || length > max ? false : true;
+    function vAlidemail(email) {
+        // validate email format
+        const run = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        return run.test(email);
+    }
+
+
+    function CHECKINPUT(input, message) {
+        let valid = true
+        if (!CHECK(input)) {
+            mistake(input, message)
+            valid = false
+        }
+        else {
+            success(input)
+        }
+        return valid
+    }
+
+
+
+    function mistake(input, message) {
+        let container = input.parentElement;
+        container.classList.add('mistake');
+        // fix the class
+        let test = container.querySelector('small');
+        test.innerText = message;
+    }
+
+    function success(input) {
+        let container = input.parentElement;
+        container.classList.remove('mistake');
+        // fix the class
+        let test = container.querySelector('small');
+        test.innerText = '';
+    }
+
+    function sTorage() {
+        // get items in localstorage
+        const prevData = localStorage.getItem('user');
+        // store into an empty array
+        let data = prevData ? JSON.parse(prevData) : [];
+        console.log(data);
+        // const { input } = e.target
+
+        // create object
+        const store = {
+            maiName: FName.value,
+            subName: LName.value,
+            mail: Email.value,
+            password: PWord.value
+        }
+        data.push(store);
+        // set items into array
+        localStorage.setItem('user', JSON.stringify(data));
+    }
+
+    // get items in localstorage
+    const prevData = localStorage.getItem('user');
+    // store into an empty array
+    let data = prevData ? JSON.parse(prevData) : [];
+    // const { input } = e.target
+
+    // create object
+    const store = {
+        maiName: FName.value,
+        subName: LName.value,
+        mail: Email.value,
+        password: PWord.value
+    }
+    data.push(store);
+ 
+    //get email from localstorage into an array
+    for (i in data) {
+        let checkUniemail = data[i]['mail'];
+        arr.push(checkUniemail);
+    }
+    
+
+    function checkmail() {
+        let valid = true
+        // check email
+        const email = Email.value.trim();
+        // check if email is empty
+        if (!CHECKINPUT(Email)) {
+            mistake(Email, 'Your email is required');
+            valid = false
+        }
+        // validate email
+        else if (!vAlidemail(email)) {
+            mistake(Email, 'Invalid email address');
+            valid = false
+        } else if (arr.includes(Email.value)) {
+            mistake(Email, 'Duplicate Email Address')
+            valid = false
+        }
+        else {
+            success(Email)
+            valid = true
+        }
+        return valid
+
+    }
+
+    const checkPwordLength = () => {
+        let valid = false;
+        const min = 5;
+        const password = PWord.value.trim();
+        // check if password is empty
+        if (!CHECKINPUT(PWord)) {
+            mistake(PWord, 'Your password is required')
+        }
+        // check password length
+        else if (!BetweenLength(password.length, min)) {
+            mistake(PWord, `atleast ${min} digits`)
+        } else {
+            success(PWord);
+            valid = true
+        }
+        return valid
+    }
+
+    function checkNameLength() {
+        let valid = false;
+        const min = 3
+        const name = FName.value.trim();
+        // check if first-name is empty
+        if (!CHECKINPUT(FName)) {
+            mistake(FName, 'Your First-name is required')
+        }
+        // check password length
+        else if (!BetweenLength(name.length, min)) {
+            mistake(FName, `First-Name must be atleast ${min} letters`)
+        } else {
+            success(FName)
+            valid = true
+        }
+        return valid
+    }
+
+    function checkNameLength1() {
+        let valid = false;
+        const min = 3
+        const name1 = LName.value.trim();
+        // check if last-name is empty
+        if (!CHECKINPUT(LName)) {
+            mistake(LName, `Your Last-Name is required`)
+        }
+        // check last-name length
+        else if (!BetweenLength(name1.length, min)) {
+            mistake(LName, `Last-Name must be atlest ${min} letters`)
+        } else {
+            success(LName)
+            valid = true
+        }
+        return valid
+    }
+
+</script>
+
+</html>
