@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login page</title>
-    <link rel="stylesheet" href="bootstrap/css/bootsrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/fontawesome-free-5.7.2-web 2/css/all.css">
     <link rel="stylesheet" href="login.css">
 </head>
@@ -14,7 +14,7 @@
 <body>
     <div class="banner">
         <div class="container">
-            <form action="index.html" id="form">
+            <form id="form">
                 <h1 class="intro">login</h1>
                 <div class="card">
                     <div class="card-body">
@@ -36,7 +36,7 @@
                             <small></small>
                         </div><br>
 
-                        <button type="submit" class="btn">Submit</button>
+                       <button type="submit" class="btn">Submit</button>
                     </div>
                 </div>
             </form>
@@ -62,7 +62,7 @@
             return valid = false
         } else {
             form.submit()
-            window.Location.assign('dashboard.html')
+            window.location.assign('dashboard.html');
             valid = true
         }
         return valid
@@ -107,14 +107,21 @@
         test.innerText = '';
     }
 
+    // check unique email
+
+    for (i in login) {
+        let unimail = login[i]['mail']
+        arr.push(unimail)
+        console.log(arr)
+    }
+
     function checkemail() {
-        let uniemail = login.findIndex((searchmail) => searchmail.mail == Email.value)
         let valid = true
         if (!CHECKINPUT(Email)) {
             valid = false
             mistake(Email, 'Fill this field')
         }
-        else if (!(login[uniemail].mail == Email.value)) {
+        else if (!arr.includes(Email.value)) {
             valid = false
             mistake(Email, 'Invalid')
         } else {
