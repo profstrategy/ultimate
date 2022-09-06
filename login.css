@@ -134,6 +134,7 @@ legend {
     #form {
         background-color: rgb(226, 226, 226);
         width: 80vw;
+       padding:  0 0 2.5rem;
     }
 
     .card-intro-m {
