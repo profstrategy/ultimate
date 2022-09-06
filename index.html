@@ -8,7 +8,7 @@
     <title>validationWithLocalStorage</title>
     <link rel="stylesheet" href="bootstrap/css/bootsrap.css">
     <link rel="stylesheet" href="bootstrap/fontawesome-free-5.7.2-web 2/css/all.css">
-    <link rel="stylesheet" href="validation.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
                 <h1 class="intro">WELCOME</h1>
                 <div class="card">
                     <div class="card-body">
-                        <h1>Complete your registration</h1>
+                        <h1 class="card-intro">register</h1>
                         <div class="input-group">
                             <input type="text" id="inp1" name="First-Name" placeholder="First-Name" method="post">
                             <small></small>
@@ -53,7 +53,6 @@
     let LName = document.getElementById('inp2');
     let Email = document.getElementById('inp3');
     let PWord = document.getElementById('inp4');
-    let inputGroup = document.querySelectorAll('input-group');
     const arr = []
 
     // submit event
@@ -163,13 +162,13 @@
         password: PWord.value
     }
     data.push(store);
- 
+
     //get email from localstorage into an array
     for (i in data) {
         let checkUniemail = data[i]['mail'];
         arr.push(checkUniemail);
     }
-    
+
 
     function checkmail() {
         let valid = true

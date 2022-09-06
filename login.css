@@ -46,7 +46,7 @@ input {
     outline: none;
 }
 
-h1 {
+.card-intro {
   margin: 20px;
   color:  #49afe2; 
   text-transform: capitalize;
@@ -84,11 +84,15 @@ h1 {
 
 .intro {
     text-align: center;
-    font-family: var(--firstfont);
+    font-family: var(--secondfont);
     color: #698f3f;
     letter-spacing: var(--letterspace);
     margin-top: -5px;
     text-transform: uppercase;
+}
+
+.card-intro-m {
+    display: none;
 }
 
 fieldset{
@@ -124,4 +128,24 @@ legend {
     display: block;
     text-align: left;
     color: red;
+}
+
+@media screen and (max-width: 702px) {
+    #form {
+        background-color: rgb(226, 226, 226);
+        width: 80vw;
+    }
+
+    .card-intro-m {
+        font-size: 3rem;
+        text-align: center;
+        display: block;
+        color: var(--primarycolor);
+        letter-spacing: var(--letterspace);
+        font-family: var(--firstfont);
+      }
+
+      .card-intro {
+        display: none;
+      }
 }

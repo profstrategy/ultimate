@@ -39,16 +39,21 @@ body {
 input {
     width: 100%;
     padding: 15px;
-    opacity: 30px;
+    margin-top: 0.5rem;
     border-radius: 10px;
-    border-color: #49afe2;
-    border-style: groove;
+    border-style: none;
+    background-color: whitesmoke;
     outline: none;
 }
 
-h1 {
+.card-intro {
   margin: 20px;
   color:  #49afe2; 
+  font-family: var(--firstfont);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 3rem;
+  letter-spacing: var(--letterspace);
 }
 
 .mistake {
@@ -86,13 +91,27 @@ h1 {
 
 #form {
     background-color: rgb(226, 226, 226);
-    padding: 0 70px 40px 64px;
+    padding: 0 50px 40px 50px;
+    width: 60vw;
+    border-radius: 1rem;
 }
 
 .intro {
     text-align: center;
-    font-family: var(--firstfont);
+    font-family: var(--secondfont);
     color: #698f3f;
     letter-spacing: var(--letterspace);
-    margin-top: -5px;
+    margin-top: -6px;
+}
+
+
+@media screen and (max-width: 700px) {
+    #form {
+        background-color: rgb(226, 226, 226);
+        width: 80vw;
+    }
+
+    .card-intro {
+        font-size: 1.5rem;
+      }
 }
