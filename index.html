@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>validationWithLocalStorage</title>
     <link rel="stylesheet" href="bootstrap/css/bootsrap.css">
-    <link rel="stylesheet" href="bootstrap/fontawesome-free-5.7.2-web 2/css/all.css">
+    <link rel="stylesheet" href="fonts/css/all.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="input-group">
-                            <input type="password" id="inp4" name="password" placeholder="Password" maxlength="20">
+                           <i class="fa fa-eye icon" id="icon"></i><input type="password" id="inp4" name="password" placeholder="Password" maxlength="20">
                             <small></small>
                         </div><br>
 
@@ -53,6 +53,7 @@
     let LName = document.getElementById('inp2');
     let Email = document.getElementById('inp3');
     let PWord = document.getElementById('inp4');
+    let eye = document.getElementById('icon')
     const arr = []
 
     // submit event
@@ -248,6 +249,14 @@
         }
         return valid
     }
+
+    eye.addEventListener('click', function() {
+        if (PWord.type === 'password') {
+            PWord.type = 'text'
+        }else{
+            PWord.type = 'password'
+        }
+    })
 
 </script>
 
