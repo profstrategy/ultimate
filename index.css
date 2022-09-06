@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --firstfont: "Grand Hotel", cursive;
     --secondfont: "Catamaran", sans-serif;
     --primarycolor: #49afe2;
-    --background:  #698f3f;
+    --background: #698f3f;
     --letterspace: 0.4rem;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-     /* position: absolute; 
+    /* position: absolute; 
      left: 50%;
      top: 50%; 
      transform: translate(-50%, -50%);   */
@@ -47,21 +47,26 @@ input {
 }
 
 .card-intro {
-  margin: 20px;
-  color:  #49afe2; 
-  font-family: var(--firstfont);
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 3rem;
-  letter-spacing: var(--letterspace);
+    margin: 20px;
+    color: #49afe2;
+    font-family: var(--firstfont);
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 3rem;
+    letter-spacing: var(--letterspace);
 }
 
-.icon{
+.icon {
     position: absolute;
     display: block;
     color: var(--primarycolor);
     right: 35%;
     padding-top: 2%;
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .mistake {
@@ -70,7 +75,7 @@ input {
     color: red;
 }
 
-.mistake input{
+.mistake input {
     border-color: red;
 }
 
@@ -83,7 +88,7 @@ input {
     font-family: var(--firstfont);
     border-radius: 10px;
     opacity: 20px;
-    border-color:#698f3f;
+    border-color: #698f3f;
     border-style: hidden;
     letter-spacing: var(--letterspace);
     outline: 0.2rem solid var(--primarycolor);
@@ -93,8 +98,10 @@ input {
 .btn:hover {
     transform: translateY(-3px);
 }
+
 .btn:hover {
-    background: var(--primarycolor);;
+    background: var(--primarycolor);
+    ;
 }
 
 #form {
@@ -121,9 +128,20 @@ input {
 
     .card-intro {
         font-size: 1.5rem;
-      }
+    }
 
-      .icon {
-        top: 58%;
-      }
+    .icon {
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        display: none;
+    }
+
+    .password {
+        position: relative;
+    }
+
+    #form {
+        padding: 0 0 2rem;
+    }
 }

@@ -24,7 +24,7 @@
                             <small></small>
                         </div>
 
-                        <div class="input-group mt-1">
+                        <div class="input-group">
                             <input type="text" id="inp2" name="Last-Name" placeholder="Last-Name" method="post">
                             <small></small>
                         </div>
@@ -34,8 +34,10 @@
                             <small></small>
                         </div>
 
-                        <div class="input-group">
-                           <i class="fa fa-eye icon" id="icon"></i><input type="password" id="inp4" name="password" placeholder="Password" maxlength="20">
+                        <div class="input-group password">
+                            <i class="fa fa-eye icon" id="icon"></i>
+                            <input type="password" id="inp4" name="password" placeholder="Password" maxlength="20"
+                                oninput="show()">
                             <small></small>
                         </div><br>
 
@@ -250,13 +252,17 @@
         return valid
     }
 
-    eye.addEventListener('click', function() {
+    eye.addEventListener('click', function () {
         if (PWord.type === 'password') {
             PWord.type = 'text'
-        }else{
+        } else {
             PWord.type = 'password'
         }
     })
+
+    function show() {
+        eye.classList.add('show')
+    }
 
 </script>
 
