@@ -134,7 +134,7 @@ input {
         position: absolute;
         top: 20%;
         right: 10%;
-        display: none;
+        display: block;
     }
 
     .password {
