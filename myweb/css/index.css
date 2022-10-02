@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* roots */
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --letterspacing: .5rem;
+    --body-font: 'Poppins', sans-serif;
+    --first-font: 'Source Sans Pro', sans-serif;
+    --second-font: 'Catamaran', sans-serif;
+    --mainTransition: all .3s ease-in-out;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+
+/* end of roots */
+
+/* utilities/helper classes */
+a {
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-light {
+    color: var(--light);
+}
+
+.section-top {
+    margin-top: 5rem;
+}
+
+.line-spacing {
+   margin-top: 2rem;
+}
+
+.section-spacing {
+    line-height: 1.8rem;
+}
+
+/* end of utilities/helper classes */
+
+body {
+    font-family: var(--body-font);
+}
+
+/* banner */
+.header {
+    height: 110vh;
+    background: repeating-linear-gradient(to right, #fd7e14, #ffc107, #dc3545);
+}
+/* banner */
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    background: repeating-linear-gradient(to right, #fd7e14, #ffc107, #dc3545);
+}
+
+.nav-list {
+    display: flex;
+    font-weight: 900;
+    font-family: var(--first-font);
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    color: var(--light);
+    font-size: .8rem;
+}
+
+.list:hover {
+    color: var(--gray);
+  transition: var(--mainTransition);
+}
+
+.nav-brand {
+    font-family: var(--second-font);
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--light);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-img {
+    width: 2rem;
+}
+
+.span {
+    position: absolute;
+    width: 1rem;
+    left: 67%;
+}
+/* navbar */
+
+/* banner section */
+.section-header {
+    font-family: var(--second-font);
+    color: var(--light);
+    text-transform: capitalize;
+    opacity: 0.9;
+}
+
+.hero-section {
+    color: var(--light);
+   text-transform: capitalize;
+   opacity: 0.9;
+}
+
+.section-btn {
+    color: var(--blue);
+    padding: .7rem 2rem;
+    text-transform: capitalize;
+    border-radius: 2rem;
+    font-weight: 800;
+    border-color: var(--white);
+}
+
+.section-btn:hover{
+    background: repeating-linear-gradient(to right, #fd7e14, #ffc107, #dc3545);
+    transition: var(--mainTransition);
+    color: var(--white) !important;
+}
+
+.img-section {
+    color: var(--white);
+}
+
+.net-img {
+    width: 90%;
+    transition: width 16ms linear 2ms;
+}
+.net-img:hover {
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    justify-content: center;
+}
+
+/* carousel */
+.carousel-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .1rem solid;
+    background: repeating-linear-gradient(to right, #dc3545, #ffc107, #fd7e14);
+    border-top-style: none;
+    border-bottom-style: none;
+    border-style: none;
+    border-radius: 2rem;
+}
+
+.mycarousel {
+   width: 70%;
+}
+
+.carousel-img {
+    height: 10rem;
+    transition: 2s ease .5s ease-in-out;
+    padding-bottom: 2rem;
+}
+/* end of carousel */
+/* banner section */
+
